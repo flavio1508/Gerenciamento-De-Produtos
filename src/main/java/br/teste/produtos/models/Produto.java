@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Produto extends EntidadeBase {
-    
+
     @Column(nullable = false, length = 200)
     private String nome;
 

@@ -36,10 +36,10 @@ public class Administrador {
     @Column(nullable = false)
     private String senha;
 
-    @OneToMany(mappedBy = "produto_digital", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.REMOVE)
     List<ProdutoDigital> produtoDigital;
 
-    @OneToMany(mappedBy = "produto_simples", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.REMOVE)
     List<ProdutoSimples> produtoSimples;
 
     public Administrador(String email, String senha) {
