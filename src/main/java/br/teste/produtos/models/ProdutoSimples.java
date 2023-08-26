@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ProdutoSimples extends Produto {
     @Column(nullable = false)
-    private int quantidadeDoProduto;
+    private int quantidadeDeProduto;
 
-    public ProdutoSimples(String nome, String descricao, double valor, LocalDate dataLimite, int quantidadeDoProduto) throws Exception {
+    public ProdutoSimples(String nome, String descricao, double valor, LocalDate dataLimite, int quantidadeDeProduto) throws Exception {
         super(nome, descricao, valor, dataLimite);
-        this.quantidadeDoProduto = quantidadeDoProduto;
+        this.quantidadeDeProduto = quantidadeDeProduto;
     }
 }
