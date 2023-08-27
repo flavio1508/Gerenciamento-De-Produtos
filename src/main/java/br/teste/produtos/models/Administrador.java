@@ -42,7 +42,7 @@ public class Administrador {
     @OneToMany(mappedBy = "administrador", cascade = CascadeType.REMOVE)
     List<ProdutoSimples> produtoSimples;
 
-    public Administrador(String email, String senha) {
+    public Administrador(String nome, String email, String senha) {
         this.email = email;
         this.senha = senha;
     }

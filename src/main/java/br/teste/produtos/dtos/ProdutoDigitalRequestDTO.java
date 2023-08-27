@@ -13,6 +13,8 @@ public class ProdutoDigitalRequestDTO {
     private String nome;
     private String descricao;
     private double valor;
-    private LocalDate dataLimite;
+    private String dataLimite;
     private String urlDownload;
+    private Long idDaCrianca;
+
 }
