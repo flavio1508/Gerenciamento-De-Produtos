@@ -1,5 +1,5 @@
 # Gerenciamento-De-Produtos
-Foi criado endpoints para cadastro, edição e listagem de produtos. 
+Foi criado endpoints para cadastro, edição, remoção e listagem de produtos. 
 ## 🔧 Tecnologias utilizadas 🔧
 Para o desenvolvimento do projeto foi utilizado o SpringBoot + PostgreSQL e Fiz teste para controller;
 ## Comando para levantar o Back-End
