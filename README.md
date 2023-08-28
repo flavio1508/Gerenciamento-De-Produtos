@@ -1,7 +1,9 @@
 # Gerenciamento-De-Produtos
+Foi criado endpoints para cadastro, edição e listagem de produtos. 
 ## 🔧 Tecnologias utilizadas 🔧
-Para o desenvolvimento do projeto foi utilizado o SpringBoot + PostgreSQL;
-
+Para o desenvolvimento do projeto foi utilizado o SpringBoot + PostgreSQL e Fiz teste para controller;
+## Comando para levantar o Back-End
+mvn spring-boot:run
 ## Front-End
 https://github.com/flavio1508/Gerenciamento-De-EstoqueVue.git
 ## 👨‍💻 Desenvolvido 👩‍💻
