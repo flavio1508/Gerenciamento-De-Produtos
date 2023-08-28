@@ -1,6 +1,9 @@
 # Gerenciamento-De-Produtos
 ## 🔧 Tecnologias utilizadas 🔧
 Para o desenvolvimento do projeto foi utilizado o SpringBoot + PostgreSQL;
+
+## Front-End
+https://github.com/flavio1508/Gerenciamento-De-EstoqueVue.git
 ## 👨‍💻 Desenvolvido 👩‍💻
 <table>
 <tr>
