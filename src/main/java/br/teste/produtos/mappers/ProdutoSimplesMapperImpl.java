@@ -30,7 +30,8 @@ public class ProdutoSimplesMapperImpl implements ProdutoSimplesMapper {
                 produtoSimples.getDescricao(),
                 produtoSimples.getValor(),
                 produtoSimples.getDataLimite(),
-                produtoSimples.getQuantidadeDeProduto());
+                produtoSimples.getQuantidadeDeProduto(),
+                produtoSimples.getAdministrador().getId());
     }
 
     @Override
@@ -49,7 +50,7 @@ public class ProdutoSimplesMapperImpl implements ProdutoSimplesMapper {
 
     private Administrador verificaSeObjetoEhNulo(ProdutoSimplesRequestDTO produtoSimplesRequestDTO) {
         Optional<Administrador> administradorOptional = administradorRepository
-                .findById(produtoSimplesRequestDTO.getIdDaCrianca());
+                .findById(produtoSimplesRequestDTO.getIdDoAdministrador());
         if (administradorOptional.isEmpty()) {
             throw new NoSuchElementException();
         }

@@ -16,13 +16,15 @@ public class ProdutoDigitalResponseDTO {
     private double valor;
     private LocalDate dataLimite;
     private String urlDownload;
+    private long idDoAdministrador;
 
-    public ProdutoDigitalResponseDTO(ProdutoDigital produtoDigital){
-        this.id = produtoDigital.getId();
-        this.nome = produtoDigital.getNome();
-        this.descricao = produtoDigital.getDescricao();
-        this.valor = produtoDigital.getValor();
-        this.dataLimite = produtoDigital.getDataLimite();
-        this.urlDownload = produtoDigital.getUrlDownload();
-    }
+    // public ProdutoDigitalResponseDTO(ProdutoDigital produtoDigital){
+    //     this.id = produtoDigital.getId();
+    //     this.nome = produtoDigital.getNome();
+    //     this.descricao = produtoDigital.getDescricao();
+    //     this.valor = produtoDigital.getValor();
+    //     this.dataLimite = produtoDigital.getDataLimite();
+    //     this.urlDownload = produtoDigital.getUrlDownload();
+    //     this.idDoAdministrador = produtoDigital.getAdministrador();
+    // }
 }

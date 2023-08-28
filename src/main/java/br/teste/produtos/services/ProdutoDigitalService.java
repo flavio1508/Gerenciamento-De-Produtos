@@ -1,5 +1,6 @@
 package br.teste.produtos.services;
 
+import java.util.Collection;
 import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Optional;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.teste.produtos.dtos.ProdutoDigitalRequestDTO;
 import br.teste.produtos.dtos.ProdutoDigitalResponseDTO;
 import br.teste.produtos.mappers.ProdutoDigitalMapper;
 import br.teste.produtos.models.ProdutoDigital;
@@ -21,51 +23,56 @@ public class ProdutoDigitalService {
     @Autowired
     private ProdutoDigitalMapper produtoDigitalMapper;
 
-    public ProdutoDigitalService (ProdutoDigitalRepository produtoDigitalRepository, ProdutoDigitalMapper produtoDigitalMapper){
+    public ProdutoDigitalService(ProdutoDigitalRepository produtoDigitalRepository,
+            ProdutoDigitalMapper produtoDigitalMapper) {
         this.produtoDigitalRepository = produtoDigitalRepository;
         this.produtoDigitalRepository = produtoDigitalRepository;
     }
 
-    public ProdutoDigitalResponseDTO buscarPorId(Long id){
+    public ProdutoDigitalResponseDTO buscarPorId(Long id) {
         return produtoDigitalMapper.produtoDigitalParaProdutoDigitalResponseDTO(buscarProdutoDigitalPeloId(id));
     }
 
     private ProdutoDigital buscarProdutoDigitalPeloId(Long id) {
         Optional<ProdutoDigital> produtoDigitalOptional = produtoDigitalRepository.findById(id);
-        if(produtoDigitalOptional.isEmpty()){
+        if (produtoDigitalOptional.isEmpty()) {
             throw new NoSuchElementException();
         }
         return produtoDigitalOptional.get();
     }
 
     @Transactional
-    public TarefaResponseDTO cadastrar(TarefaRequestDTO  tarefaRequestDTO) {
-        Tarefa tarefa = tarefaMapper.tarefaRequestparaTarefa(tarefaRequestDTO);
-        tarefaRepository.save(tarefa);
-        return tarefaMapper.tarefaParaTarefaResponseDTO(tarefa);   
+    public ProdutoDigitalResponseDTO cadastrar(ProdutoDigitalRequestDTO produtoDigitalRequestDTO) throws Exception {
+        ProdutoDigital produtoDigital = produtoDigitalMapper
+                .produtoDigitalRequestparaProdutoDigital(produtoDigitalRequestDTO);
+        produtoDigitalRepository.save(produtoDigital);
+        return produtoDigitalMapper.produtoDigitalParaProdutoDigitalResponseDTO(produtoDigital);
     }
 
-    public Collection<TarefaResponseDTO> buscarTodas() {        
-        return tarefaMapper.tarefasParaTarefasResponsesDtos((Collection<Tarefa>) tarefaRepository.findAll());
+    public Collection<ProdutoDigitalResponseDTO> buscarTodas() {
+        return produtoDigitalMapper.produtoDigitalParaProdutoDigitalResponsesDtos(
+                (Collection<ProdutoDigital>) produtoDigitalRepository.findAll());
     }
 
-    public TarefaResponseDTO alterar(TarefaRequestDTO tarefaRequestDto, long id) {
-        Tarefa tarefaParaAlterar = buscarTarefaPeloId(id);
-        tarefaParaAlterar.setDataLimite(DataConvert.obterData(tarefaRequestDto.getDataLimite()));
-        tarefaParaAlterar.setHoraLimite(DataConvert.obterHoraLimiteCompleta(tarefaRequestDto.getDataLimite(), tarefaRequestDto.getHoraLimite()));
-        tarefaParaAlterar.setNome(tarefaRequestDto.getNome());
-        tarefaParaAlterar.setValor(tarefaRequestDto.getValor());
+    public ProdutoDigitalResponseDTO alterar(ProdutoDigitalRequestDTO produtoDigitalRequestDto, long id) {
+        ProdutoDigital produtoDigitalParaAlterar = buscarProdutoDigitalPeloId(id);
+        produtoDigitalParaAlterar.setDataLimite(DataConvert.obterData(produtoDigitalRequestDto.getDataLimite()));
+        produtoDigitalParaAlterar.setDescricao(produtoDigitalRequestDto.getDescricao());
+        produtoDigitalParaAlterar.setNome(produtoDigitalRequestDto.getNome());
+        produtoDigitalParaAlterar.setValor(produtoDigitalRequestDto.getValor());
+        produtoDigitalParaAlterar.setUrlDownload(produtoDigitalRequestDto.getUrlDownload());
 
-        tarefaRepository.save(tarefaParaAlterar);
+        produtoDigitalRepository.save(produtoDigitalParaAlterar);
 
-        return tarefaMapper.tarefaParaTarefaResponseDTO(tarefaParaAlterar); 
-    }    
+        return produtoDigitalMapper.produtoDigitalParaProdutoDigitalResponseDTO(produtoDigitalParaAlterar);
+    }
 
-    public Collection<TarefaResponseDTO> buscarTarefasPelaCrianca(Long id){
-        return tarefaMapper.tarefasParaTarefasResponsesDtos((Collection<Tarefa>) tarefaRepository.findAllByCrianca(id));
+    public Collection<ProdutoDigitalResponseDTO> buscarProdutoDigitalPeloAdministrador(Long id) {
+        return produtoDigitalMapper.produtoDigitalParaProdutoDigitalResponsesDtos(
+                (Collection<ProdutoDigital>) produtoDigitalRepository.findAllByAdministrador(id));
     }
 
     public void deletar(Long id) {
-        tarefaRepository.deleteById(id);
+        produtoDigitalRepository.deleteById(id);
     }
 }

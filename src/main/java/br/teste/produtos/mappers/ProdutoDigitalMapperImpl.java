@@ -27,7 +27,8 @@ public class ProdutoDigitalMapperImpl implements ProdutoDigitalMapper {
                 produtoDigital.getDescricao(),
                 produtoDigital.getValor(),
                 produtoDigital.getDataLimite(),
-                produtoDigital.getUrlDownload());
+                produtoDigital.getUrlDownload(),
+                produtoDigital.getAdministrador().getId());
     }
 
     @Override
@@ -45,7 +46,7 @@ public class ProdutoDigitalMapperImpl implements ProdutoDigitalMapper {
                 );
     }
       private Administrador verificaSeObjetoEhNulo(ProdutoDigitalRequestDTO produtoDigitalRequestDTO) {
-        Optional<Administrador> administradorOptional = administradorRepository.findById(produtoDigitalRequestDTO.getIdDaCrianca());
+        Optional<Administrador> administradorOptional = administradorRepository.findById(produtoDigitalRequestDTO.getIdDoAdministrador());
         if(administradorOptional.isEmpty()){
             throw new NoSuchElementException();
         }

@@ -19,33 +19,33 @@ public class AdministradorService {
 
     @Autowired
     private AdministradorMapper administradorMapper;
-    
-     public AdministradorResponseDTO buscarPorId(Long id){
+
+    public AdministradorResponseDTO buscarPorId(Long id) {
         return administradorMapper.administradorParaAdministradorResponseDTO(buscarAdministradorPeloId(id));
     }
 
     private Administrador buscarAdministradorPeloId(Long id) {
         Optional<Administrador> administradorOptional = administradorRepository.findById(id);
-        if(administradorOptional.isEmpty()){
+        if (administradorOptional.isEmpty()) {
             throw new NoSuchElementException();
         }
         return administradorOptional.get();
     }
 
-    public AdministradorResponseDTO alterarAdministrador(AdministradorRequestDTO administradorRequestDTO, Long id){
+    public AdministradorResponseDTO alterarAdministrador(AdministradorRequestDTO administradorRequestDTO, Long id) {
         Administrador administradorParaAlterar = buscarAdministradorPeloId(id);
         administradorParaAlterar.setNome(administradorRequestDTO.getNome());
         administradorParaAlterar.setEmail(administradorRequestDTO.getEmail());
         administradorParaAlterar.setSenha(administradorRequestDTO.getSenha());
-       
 
         administradorRepository.save(administradorParaAlterar);
 
         return administradorMapper.administradorParaAdministradorResponseDTO(administradorParaAlterar);
     }
 
-    public AdministradorResponseDTO cadastrar(AdministradorRequestDTO administradorRequestDTO) throws Exception{
-        Administrador administrador = administradorMapper.administradorRequestparaAdministrador(administradorRequestDTO);
+    public AdministradorResponseDTO cadastrar(AdministradorRequestDTO administradorRequestDTO) throws Exception {
+        Administrador administrador = administradorMapper
+                .administradorRequestparaAdministrador(administradorRequestDTO);
         administradorRepository.save(administrador);
         return administradorMapper.administradorParaAdministradorResponseDTO(administrador);
     }

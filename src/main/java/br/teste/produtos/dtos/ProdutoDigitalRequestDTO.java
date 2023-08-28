@@ -15,6 +15,6 @@ public class ProdutoDigitalRequestDTO {
     private double valor;
     private String dataLimite;
     private String urlDownload;
-    private Long idDaCrianca;
+    private long idDoAdministrador;
 
 }

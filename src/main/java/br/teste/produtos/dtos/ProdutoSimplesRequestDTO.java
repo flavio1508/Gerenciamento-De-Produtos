@@ -12,6 +12,6 @@ public class ProdutoSimplesRequestDTO {
     private double valor;
     private String dataLimite;
     private int quantidadeDeProduto;
-    private Long idDaCrianca;
+    private long idDoAdministrador;
 
 }
