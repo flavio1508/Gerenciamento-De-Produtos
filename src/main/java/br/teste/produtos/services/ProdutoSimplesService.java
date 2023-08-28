@@ -8,15 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.teste.produtos.dtos.ProdutoDigitalRequestDTO;
-import br.teste.produtos.dtos.ProdutoDigitalResponseDTO;
 import br.teste.produtos.dtos.ProdutoSimplesRequestDTO;
 import br.teste.produtos.dtos.ProdutoSimplesResponseDTO;
-import br.teste.produtos.mappers.ProdutoDigitalMapper;
 import br.teste.produtos.mappers.ProdutoSimplesMapper;
-import br.teste.produtos.models.ProdutoDigital;
 import br.teste.produtos.models.ProdutoSimples;
-import br.teste.produtos.repository.ProdutoDigitalRepository;
 import br.teste.produtos.repository.ProdutoSimplesRepository;
 import br.teste.produtos.utils.DataConvert;
 

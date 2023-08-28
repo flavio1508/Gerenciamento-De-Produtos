@@ -11,7 +11,7 @@ import br.teste.produtos.models.ProdutoDigital;
 public interface ProdutoDigitalRepository extends CrudRepository<ProdutoDigital, Long> {
     List<ProdutoDigital> findByNomeContainingIgnoreCase(String nome);
 
-     @Query("SELECT t FROM ProdutoDigital t JOIN t.administrador c WHERE c.id = :idDoAdministrador")
-    Collection <ProdutoDigital> findAllByAdministrador(Long idDoAdministrador);
+    @Query("SELECT t FROM ProdutoDigital t JOIN t.administrador c WHERE c.id = :idDoAdministrador")
+    Collection<ProdutoDigital> findAllByAdministrador(Long idDoAdministrador);
 
 }

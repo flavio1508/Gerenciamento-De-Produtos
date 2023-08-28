@@ -18,13 +18,5 @@ public class ProdutoSimplesResponseDTO {
     private int quantidadeDeProduto;
     private Long idDoAdministrador;
 
-    // public ProdutoSimplesResponseDTO(ProdutoSimples produtoSimples){
-    //     this.id = produtoSimples.getId();
-    //     this.nome = produtoSimples.getNome();
-    //     this.descricao = produtoSimples.getDescricao();
-    //     this.valor = produtoSimples.getValor();
-    //     this.dataLimite = produtoSimples.getDataLimite();
-    //     this.quantidadeDeProduto = produtoSimples.getQuantidadeDeProduto();
-    //     this.idDoAdministrador = produtoSimples.getAdministrador();
-    // }
+   
 }

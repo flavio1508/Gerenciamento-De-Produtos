@@ -16,7 +16,7 @@ public class AdministradorResponseDTO {
     private String email;
     private String senha;
 
-    public AdministradorResponseDTO(Administrador administrador){
+    public AdministradorResponseDTO(Administrador administrador) {
         this.id = administrador.getId();
         this.nome = administrador.getNome();
         this.email = administrador.getEmail();

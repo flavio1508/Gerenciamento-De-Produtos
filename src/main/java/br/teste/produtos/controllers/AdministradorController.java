@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.teste.produtos.dtos.AdministradorRequestDTO;
 import br.teste.produtos.dtos.AdministradorResponseDTO;
-import br.teste.produtos.models.Administrador;
 import br.teste.produtos.repository.AdministradorRepository;
 import br.teste.produtos.services.AdministradorService;
 import io.swagger.v3.oas.annotations.Operation;
-import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = { "/api/v1/administrador" }, produces = { "application/json" })
 public class AdministradorController {
-        private final AdministradorService administradorService;
+    private final AdministradorService administradorService;
 
     public AdministradorController(AdministradorService administradorService) {
         this.administradorService = administradorService;

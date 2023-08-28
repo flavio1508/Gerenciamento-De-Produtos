@@ -8,7 +8,11 @@ import br.teste.produtos.models.Administrador;
 
 public interface AdministradorMapper {
     public AdministradorResponseDTO administradorParaAdministradorResponseDTO(Administrador administrador);
-    public Administrador administradorRequestparaAdministrador(AdministradorRequestDTO administradorRequestDTO) throws Exception;
-    public Collection<AdministradorResponseDTO> administradorParaAdministradorResponsesDtos(Collection<Administrador> administrador);
+
+    public Administrador administradorRequestparaAdministrador(AdministradorRequestDTO administradorRequestDTO)
+            throws Exception;
+
+    public Collection<AdministradorResponseDTO> administradorParaAdministradorResponsesDtos(
+            Collection<Administrador> administrador);
 
 }

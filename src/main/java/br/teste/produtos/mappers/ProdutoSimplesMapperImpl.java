@@ -6,17 +6,14 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import br.teste.produtos.dtos.ProdutoDigitalRequestDTO;
-import br.teste.produtos.dtos.ProdutoDigitalResponseDTO;
 import br.teste.produtos.dtos.ProdutoSimplesRequestDTO;
 import br.teste.produtos.dtos.ProdutoSimplesResponseDTO;
 import br.teste.produtos.models.Administrador;
-import br.teste.produtos.models.ProdutoDigital;
 import br.teste.produtos.models.ProdutoSimples;
 import br.teste.produtos.repository.AdministradorRepository;
 import br.teste.produtos.utils.DataConvert;
-import org.springframework.stereotype.Component;
 
 @Component
 public class ProdutoSimplesMapperImpl implements ProdutoSimplesMapper {
@@ -59,11 +56,11 @@ public class ProdutoSimplesMapperImpl implements ProdutoSimplesMapper {
     }
 
     @Override
-    public Collection<ProdutoSimplesResponseDTO> produtoSimplesParaProdutoSimplesResponsesDtos(Collection<ProdutoSimples> produtosSimples) {
+    public Collection<ProdutoSimplesResponseDTO> produtoSimplesParaProdutoSimplesResponsesDtos(
+            Collection<ProdutoSimples> produtosSimples) {
         Collection<ProdutoSimplesResponseDTO> produtoSimplesResponseDtos = new ArrayList<>();
 
-        for (ProdutoSimples
-         produtoSimples : produtosSimples) {
+        for (ProdutoSimples produtoSimples : produtosSimples) {
             produtoSimplesResponseDtos.add(produtoSimplesParaProdutoSimplesResponseDTO(produtoSimples));
         }
         return produtoSimplesResponseDtos;

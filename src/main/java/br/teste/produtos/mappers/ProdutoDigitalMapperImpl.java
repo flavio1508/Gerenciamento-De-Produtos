@@ -20,6 +20,7 @@ public class ProdutoDigitalMapperImpl implements ProdutoDigitalMapper {
 
     @Autowired
     private AdministradorRepository administradorRepository;
+
     @Override
     public ProdutoDigitalResponseDTO produtoDigitalParaProdutoDigitalResponseDTO(ProdutoDigital produtoDigital) {
         return new ProdutoDigitalResponseDTO(produtoDigital.getId(),
@@ -34,7 +35,7 @@ public class ProdutoDigitalMapperImpl implements ProdutoDigitalMapper {
     @Override
     public ProdutoDigital produtoDigitalRequestparaProdutoDigital(ProdutoDigitalRequestDTO produtoDigitalRequestDTO)
             throws Exception {
-                Administrador administrador = verificaSeObjetoEhNulo(produtoDigitalRequestDTO);
+        Administrador administrador = verificaSeObjetoEhNulo(produtoDigitalRequestDTO);
 
         return new ProdutoDigital(
                 produtoDigitalRequestDTO.getNome(),
@@ -42,12 +43,13 @@ public class ProdutoDigitalMapperImpl implements ProdutoDigitalMapper {
                 produtoDigitalRequestDTO.getValor(),
                 DataConvert.obterData(produtoDigitalRequestDTO.getDataLimite()),
                 produtoDigitalRequestDTO.getUrlDownload(),
-                administrador
-                );
+                administrador);
     }
-      private Administrador verificaSeObjetoEhNulo(ProdutoDigitalRequestDTO produtoDigitalRequestDTO) {
-        Optional<Administrador> administradorOptional = administradorRepository.findById(produtoDigitalRequestDTO.getIdDoAdministrador());
-        if(administradorOptional.isEmpty()){
+
+    private Administrador verificaSeObjetoEhNulo(ProdutoDigitalRequestDTO produtoDigitalRequestDTO) {
+        Optional<Administrador> administradorOptional = administradorRepository
+                .findById(produtoDigitalRequestDTO.getIdDoAdministrador());
+        if (administradorOptional.isEmpty()) {
             throw new NoSuchElementException();
         }
         Administrador administrador = administradorOptional.get();
@@ -58,7 +60,7 @@ public class ProdutoDigitalMapperImpl implements ProdutoDigitalMapper {
     public Collection<ProdutoDigitalResponseDTO> produtoDigitalParaProdutoDigitalResponsesDtos(
             Collection<ProdutoDigital> produtosDigitais) {
         Collection<ProdutoDigitalResponseDTO> produtoDigitalResponseDtos = new ArrayList<>();
-    
+
         for (ProdutoDigital produtoDigital : produtosDigitais) {
             produtoDigitalResponseDtos.add(produtoDigitalParaProdutoDigitalResponseDTO(produtoDigital));
         }

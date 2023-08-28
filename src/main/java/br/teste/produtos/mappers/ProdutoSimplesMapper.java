@@ -8,7 +8,11 @@ import br.teste.produtos.models.ProdutoSimples;
 
 public interface ProdutoSimplesMapper {
     public ProdutoSimplesResponseDTO produtoSimplesParaProdutoSimplesResponseDTO(ProdutoSimples produtoSimples);
-    public ProdutoSimples produtoSimplesRequestparaProdutoSimples(ProdutoSimplesRequestDTO produtoSimplesRequestDTO) throws Exception;
-    public Collection<ProdutoSimplesResponseDTO> produtoSimplesParaProdutoSimplesResponsesDtos(Collection<ProdutoSimples> produtoSimples);
+
+    public ProdutoSimples produtoSimplesRequestparaProdutoSimples(ProdutoSimplesRequestDTO produtoSimplesRequestDTO)
+            throws Exception;
+
+    public Collection<ProdutoSimplesResponseDTO> produtoSimplesParaProdutoSimplesResponsesDtos(
+            Collection<ProdutoSimples> produtoSimples);
 
 }
